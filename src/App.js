@@ -46,6 +46,29 @@ class App extends Component {
   }
 
 
+  newBook = (event, state) => {
+    event.preventDefault();
+    // console.log(event);
+    // console.log(event.target);
+    // console.log(event.target.value);
+    // const eventCopy = Object.assign({}, event);
+    console.log(state);
+    let newBooks = this.state.books;
+    const newBook = {
+      id: (this.state.books[this.state.books.length -1].id) + 1,
+      title: state.title,
+      author: state.author,
+      img: state.img,
+      shelf: false
+    }
+    newBooks = [newBook, ...newBooks];
+    this.setState({
+      books: newBooks
+    })
+    console.log(this.state);
+    // debugger;
+  }
+
   componentDidMount() {
     this.fetchBooks().then(books => {
       const processed = books.map(book => {
@@ -69,7 +92,7 @@ class App extends Component {
   render() {
     return (
       <div className="book-container">
-        <BookList books={this.getList()} moveToShelf={this.moveToShelf}/>
+        <BookList books={this.getList()} moveToShelf={this.moveToShelf} newBook={this.newBook.bind(this)}/>
         <Bookshelf books={this.getShelf()} moveToList={this.moveToList}/>
       </div>
     );

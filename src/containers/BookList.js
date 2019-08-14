@@ -13,7 +13,7 @@ class BookList extends Component {
     return (
       <div className="book-list">
         <h1>Book List</h1>
-        <Form />
+        <Form newBook={this.props.newBook}/>
         <ul>{this.renderBooks()}</ul>
       </div>
     );
