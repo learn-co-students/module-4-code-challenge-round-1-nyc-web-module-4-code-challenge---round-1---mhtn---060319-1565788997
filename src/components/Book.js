@@ -1,15 +1,12 @@
 import React from "react";
 
-class Book extends React.Component{
-
-  render() {
+const Book = props => {
     return (
-      <div onClick={this.props.move} data-id={this.props.book.id}>
-        <h2 data-id={this.props.book.id}>{this.props.book.title}</h2>
-        <img src={this.props.book.img} alt={this.props.book.title} data-id={this.props.book.id}/>
+      <div onClick={props.move} data-id={props.book.id}>
+        <h2 data-id={props.book.id}>{props.book.title}</h2>
+        <img src={props.book.img} alt={props.book.title} data-id={props.book.id}/>
       </div>
     );
-  }
 };
 
 export default Book;

@@ -18,47 +18,32 @@ class App extends Component {
     return fetch(BOOKS_URL).then(res => res.json());
   }
 
-  // flipShelf = (event) =>
+  // foundFromStringOrDie = (event) => {
 
-  moveToShelf = (event) => {
+  // }
+
+  flipShelf = (event, onShelf) => {
     const id = parseInt(event.target.dataset.id, 10);
     const book = this.state.books.findIndex(book => {
       return book.id === id;
     })
+    console.assert(book !== -1);
     if (book !== -1) {
-      // const oldBook = Object.assign({}, this.state.books[book]);
-      // const newBooks = this.state.books.splice(book, 1);
-      console.assert(this.state.books[book].shelf === false);
+      console.assert(this.state.books[book].shelf === !onShelf);
       const newBooks = [...this.state.books];
-      newBooks[book].shelf = true;
+      newBooks[book].shelf = onShelf;
       this.setState({books: newBooks});
     }
+  }
+
+  moveToShelf = (event) => {
+    this.flipShelf(event, true)
   }
 
   moveToList = (event) => {
-    const id = parseInt(event.target.dataset.id, 10);
-    const book = this.state.books.findIndex(book => {
-      return book.id === id;
-    })
-    if (book !== -1) {
-      // const oldBook = Object.assign({}, this.state.books[book]);
-      // const newBooks = this.state.books.splice(book, 1);
-      console.assert(this.state.books[book].shelf === true);
-      const newBooks = [...this.state.books];
-      newBooks[book].shelf = false;
-      this.setState({books: newBooks});
-    }
+    this.flipShelf(event, false);
   }
-
-
-  newBook = (event, state) => {
-    event.preventDefault();
-    // console.log(event);
-    // console.log(event.target);
-    // console.log(event.target.value);
-    // const eventCopy = Object.assign({}, event);
-    console.log(state);
-    let newBooks = this.state.books;
+  bookFromFormState = (state) => {
     const newBook = {
       id: getRandomInt(2147483647-10), //INT32_MAX
       title: state.title,
@@ -66,13 +51,25 @@ class App extends Component {
       img: state.img,
       shelf: false
     }
-    const duplicate = newBooks.findIndex(book => {
+    return newBook;
+  }
+
+  isDuplicate = (newBooks, newBook) => {
+    return newBooks.findIndex(book => {
       return ((book.title === newBook.title) &&
               (book.author === newBook.author) &&
               (book.img === newBook.img))
-    })
+    });
+  }
+
+  newBook = (event, state) => {
+    event.preventDefault();
+ 
+    let newBooks = this.state.books;
+    const newBook = this.bookFromFormState(state);
+    const duplicate = this.isDuplicate(newBooks, newBook);
+
     if (duplicate === -1) {
-      console.log("not dupe");
       newBooks = [newBook, ...newBooks];
       this.setState({
         books: newBooks
@@ -81,18 +78,19 @@ class App extends Component {
     else {
       alert("already exists");
     }
+  }
 
-    console.log(this.state);
-    // debugger;
+  addShelfComponent = (books) => {
+    return books.map(book => {
+      const newBook = book;
+      newBook.shelf = false;
+      return newBook;
+    })
   }
 
   componentDidMount() {
     this.fetchBooks().then(books => {
-      const processed = books.map(book => {
-        const newBook = book;
-        newBook.shelf = false;
-        return newBook;
-      })
+      const processed = this.addShelfComponent(books);
       this.setState({books: processed});
       console.log(this.state.books);
     })
