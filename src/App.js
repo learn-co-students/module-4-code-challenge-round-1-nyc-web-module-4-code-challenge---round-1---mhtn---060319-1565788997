@@ -48,6 +48,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.addToBookListHandler)
     return (
       <div className="book-container">
         <BookList addToBookListHandler={this.addToBookListHandler} addToBookshelfHandler={this.addToBookshelfHandler} books={this.state.bookList} />

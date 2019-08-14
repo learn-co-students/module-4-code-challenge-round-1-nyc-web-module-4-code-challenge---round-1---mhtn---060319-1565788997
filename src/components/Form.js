@@ -16,9 +16,8 @@ class Form extends React.Component {
   }
 
   render() {
-    console.log(this.props.submitHandler)
     return (
-      <form submit={e => this.props.submitHandler(e, this.state)}>
+      <form onSubmit={e => this.props.submitHandler(e, this.state)}>
         <label>Title:</label>
         <input onChange={this.changeHandler} name="title" type="text" value={this.state.title} />
         <label>Image URL:</label>
