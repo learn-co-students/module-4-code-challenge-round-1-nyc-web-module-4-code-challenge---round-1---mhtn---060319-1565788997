@@ -17,7 +17,18 @@ class BookList extends Component {
   }
 
   addBookToList = (book) => {
-    this.setState({books: [book, ...this.state.books]})
+    fetch('http://localhost:3005/books', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(book), // body data type must match "Content-Type" header
+    })
+    .then(res => res.json())
+    .then(book => {
+      this.setState({books: [...this.state.books, book]})
+    })
+
   }
 
   render() {

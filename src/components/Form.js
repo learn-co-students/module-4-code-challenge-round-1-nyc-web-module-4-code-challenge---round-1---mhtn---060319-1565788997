@@ -16,6 +16,9 @@ class Form extends React.Component {
     event.preventDefault()
     const book = {title: this.state.title, author: this.state.author, img: this.state.img}
     this.props.addBookToList(book)
+    this.setState({title: ""})
+    this.setState({author: ""})
+    this.setState({img: ""})
   }
 
   render() {
