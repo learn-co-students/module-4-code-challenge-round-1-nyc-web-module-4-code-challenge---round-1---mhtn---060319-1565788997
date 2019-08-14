@@ -7,7 +7,7 @@ const Book = props => {
 
     < div onClick={_ => props.clickHandler(book)} >
       <h2>{book.title}</h2>
-      <img src={book.img} />
+      <img src={book.img} alt="react stop yelling at me" />
     </div >
   );
 };

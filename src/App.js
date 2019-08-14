@@ -12,6 +12,20 @@ class App extends Component {
 
   addToBookListHandler = (event, bookObj) => {
     event.preventDefault()
+    const options = {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(bookObj)
+    }
+    fetch("http://localhost:3005/books", options).then(
+      resp => resp.json()
+    ).then(
+      book => this.setState({
+        bookList: [...this.state.bookList, book]
+      })
+    )
     this.setState({
       bookList: [...this.state.bookList, bookObj]
     })
