@@ -6,7 +6,7 @@ class BookList extends Component {
 
   renderBooks = () => {
     return this.props.books.map(book => {
-      return <Book key={book.id} book={book}/>
+      return <Book key={book.id} book={book} move={this.props.moveToShelf}/>
     })
   }
   render() {

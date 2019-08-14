@@ -5,7 +5,7 @@ const Bookshelf = props => {
 
   function renderBooks(books){
     return books.map(book => {
-      return <Book key={book.id} book={book}/>
+      return <Book key={book.id} book={book} move={props.moveToList}/>
     })
   }
 
