@@ -29,12 +29,17 @@ npm start
 }
 ```
 
-2. Render a list of books that show the book title and book image in the Book List
+<!-- 2. Render a list of books that show the book title and book image in the Book List -->
+
 3. Clicking on a book in the Book List should add it to the Bookshelf
+
 4. Clicking on a book in the Bookshelf should remove it from the Bookshelf
+
 5. Create a controlled form that allows the user to add a book to the Book List (this should _NOT_ persist)
-6. BONUS: Each book can only be added to Bookshelf once (Bookshelf should not have duplicate books)
-7. BONUS: Allow newly added books to persist (optimistic rendering or pessimistic rendering)
+
+<!-- 6. BONUS: Each book can only be added to Bookshelf once (Bookshelf should not have duplicate books) -->
+
+<!-- 7. BONUS: Allow newly added books to persist (optimistic rendering or pessimistic rendering) -->
 
 ## Sample New Book Info
 Here is some convenient sample info for you to use to add new books to the Book List with your form.
