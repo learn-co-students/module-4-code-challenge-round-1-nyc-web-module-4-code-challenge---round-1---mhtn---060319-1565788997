@@ -18,31 +18,38 @@ class App extends Component {
     return fetch(BOOKS_URL).then(res => res.json());
   }
 
-  // foundFromStringOrDie = (event) => {
-
-  // }
-
-  flipShelf = (event, onShelf) => {
+  foundFromStringOrDie = (event) => {
+    // Functions that die result in easier to test code from fewer paths.
+    // Logic errors should never be continued.
     const id = parseInt(event.target.dataset.id, 10);
     const book = this.state.books.findIndex(book => {
       return book.id === id;
     })
     console.assert(book !== -1);
-    if (book !== -1) {
-      console.assert(this.state.books[book].shelf === !onShelf);
-      const newBooks = [...this.state.books];
-      newBooks[book].shelf = onShelf;
-      this.setState({books: newBooks});
+    console.log(book);
+    if (book === -1) {
+      alert("abort() called"); // C nostalgia
+      throw new Error("book not in array, logic error");
     }
+    return book;
+  }
+
+  flipShelf = (event, onShelf) => {
+    const book = this.foundFromStringOrDie(event);
+    console.assert(this.state.books[book].shelf === !onShelf);
+    const newBooks = [...this.state.books];
+    newBooks[book].shelf = onShelf;
+    this.setState({books: newBooks});
+    // console.log(this.state)
   }
 
   moveToShelf = (event) => {
     this.flipShelf(event, true)
   }
-
   moveToList = (event) => {
     this.flipShelf(event, false);
   }
+
   bookFromFormState = (state) => {
     const newBook = {
       id: getRandomInt(2147483647-10), //INT32_MAX
