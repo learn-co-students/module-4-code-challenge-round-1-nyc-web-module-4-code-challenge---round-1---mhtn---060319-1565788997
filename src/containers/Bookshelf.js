@@ -8,7 +8,7 @@ const Bookshelf = props => {
   )
   return (
     <div className="book-list">
-      <h1>Book List</h1>
+      <h1>Book Shelf</h1>
       <ul>{bookComps}</ul>
     </div>
   );
