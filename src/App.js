@@ -5,8 +5,11 @@ import Bookshelf from "./containers/Bookshelf";
 
 const BOOKS_URL = 'http://localhost:3005/books';
 
-class App extends Component {
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
 
+class App extends Component {
   state = {
     books: [],
   }
@@ -14,6 +17,8 @@ class App extends Component {
   fetchBooks = () => {
     return fetch(BOOKS_URL).then(res => res.json());
   }
+
+  // flipShelf = (event) =>
 
   moveToShelf = (event) => {
     const id = parseInt(event.target.dataset.id, 10);
@@ -55,16 +60,28 @@ class App extends Component {
     console.log(state);
     let newBooks = this.state.books;
     const newBook = {
-      id: (this.state.books[this.state.books.length -1].id) + 1,
+      id: getRandomInt(2147483647-10), //INT32_MAX
       title: state.title,
       author: state.author,
       img: state.img,
       shelf: false
     }
-    newBooks = [newBook, ...newBooks];
-    this.setState({
-      books: newBooks
+    const duplicate = newBooks.findIndex(book => {
+      return ((book.title === newBook.title) &&
+              (book.author === newBook.author) &&
+              (book.img === newBook.img))
     })
+    if (duplicate === -1) {
+      console.log("not dupe");
+      newBooks = [newBook, ...newBooks];
+      this.setState({
+        books: newBooks
+      })
+    }
+    else {
+      alert("already exists");
+    }
+
     console.log(this.state);
     // debugger;
   }
