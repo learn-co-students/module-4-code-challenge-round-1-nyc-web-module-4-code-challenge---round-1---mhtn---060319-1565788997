@@ -1,8 +1,31 @@
 import React from "react";
 
 class Form extends React.Component {
+
+
+  state = {
+    title: "",
+    img: ""
+  }
+
+  changeHandler = (event) => {
+    const inputName = event.target.name
+    this.setState({
+      [inputName]: event.target.value
+    })
+  }
+
   render() {
-    return <h1>{/*create form*/}</h1>;
+    console.log(this.props.submitHandler)
+    return (
+      <form submit={e => this.props.submitHandler(e, this.state)}>
+        <label>Title:</label>
+        <input onChange={this.changeHandler} name="title" type="text" value={this.state.title} />
+        <label>Image URL:</label>
+        <input onChange={this.changeHandler} name="img" type="text" value={this.state.img} />
+        <button>Submit</button>
+      </form>
+    )
   }
 }
 
