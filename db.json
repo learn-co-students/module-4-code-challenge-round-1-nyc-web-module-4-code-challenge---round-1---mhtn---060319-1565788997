@@ -52,6 +52,24 @@
       "title": "yada yada",
       "img": "https://images.gr-assets.com/books/1442726934l/4865.jpg",
       "id": 9
+    },
+    {
+      "title": "Lord of the Rings",
+      "author": "J.R.R Tolkien",
+      "img": "http://prodimage.images-bn.com/pimages/9780544273443_p0_v2_s1200x630.jpg",
+      "id": 10
+    },
+    {
+      "title": "Harry Potter",
+      "author": "J.K. Rowling",
+      "img": "https://images-na.ssl-images-amazon.com/images/I/71ykU-RQ0nL._SY606_.jpg",
+      "id": 11
+    },
+    {
+      "title": "Dune",
+      "author": "Frank Herbert",
+      "img": "https://cdn1.thr.com/sites/default/files/imagecache/NFE_portrait/2019/04/dune_hc-p_2019.jpg",
+      "id": 12
     }
   ]
 }

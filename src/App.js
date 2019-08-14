@@ -23,12 +23,9 @@ class App extends Component {
       resp => resp.json()
     ).then(
       book => this.setState({
-        bookList: [...this.state.bookList, book]
+        bookList: [book, ...this.state.bookList]
       })
     )
-    this.setState({
-      bookList: [...this.state.bookList, bookObj]
-    })
   }
 
   addToBookshelfHandler = (bookObj) => {
