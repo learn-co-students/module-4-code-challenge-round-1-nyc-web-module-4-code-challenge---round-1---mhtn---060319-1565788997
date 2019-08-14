@@ -47,6 +47,36 @@
       "title": "We Should All Be Feminists",
       "author": "Chimamanda Ngozi Adichie",
       "img": "https://images-na.ssl-images-amazon.com/images/I/51L9u20bC7L._SX348_BO1,204,203,200_.jpg"
+    },
+    {
+      "title": "How to Win Friends and Influence People",
+      "author": "Dale Carnegie",
+      "img": "https://images.gr-assets.com/books/1442726934l/4865.jpg",
+      "id": 9
+    },
+    {
+      "title": "The Obstacle is the Way",
+      "author": "Ryan Holiday",
+      "img": "https://images-na.ssl-images-amazon.com/images/I/41d%2Baa6UYCL._SX352_BO1,204,203,200_.jpg",
+      "id": 10
+    },
+    {
+      "title": "Trick Mirror",
+      "author": "Jia Tolentino",
+      "img": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSsythT9Zn-noqU5SszYfMaS68_cYB6voNM2Ke7HqsljaF-XV-I98ZszaudlFSGdxVDy27nH3wcUwYod5ypvxY9z10OMNWxn7zIJkdQlxhWg2af_HpglW9aig&usqp=CAc",
+      "id": 11
+    },
+    {
+      "title": "Trick Mirror",
+      "author": "Jia Tolentino",
+      "img": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSsythT9Zn-noqU5SszYfMaS68_cYB6voNM2Ke7HqsljaF-XV-I98ZszaudlFSGdxVDy27nH3wcUwYod5ypvxY9z10OMNWxn7zIJkdQlxhWg2af_HpglW9aig&usqp=CAc",
+      "id": 12
+    },
+    {
+      "title": "Chamber of Secrets",
+      "author": "JK Rowling",
+      "img": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRLR7bjUojZi79vP31KvNPNjTsJtsgzPO0d0j7hrjHjo1pX06yZw40Wh7e7k46NUSJctAP1b9FlIVu-zvrbAnVgNFa1gB9YbhW_5kJOawWT&usqp=CAc",
+      "id": 13
     }
   ]
 }
