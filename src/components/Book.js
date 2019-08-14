@@ -1,10 +1,13 @@
 import React from "react";
 
 const Book = props => {
+  console.log('props',props.book);
+  
   return (
-    <div>
-      <h2>{/*book title*/}</h2>
-      {/*book img*/}
+    <div onClick={()=>props.toggleShelf(props.book)}>
+      <h2>{props.book.title}</h2>
+      <img src={props.book.img}></img>
+      
     </div>
   );
 };
